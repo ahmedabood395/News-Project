@@ -1,0 +1,29 @@
+﻿@model LabDay4MVC.Models.ChangePassword
+@{
+    ViewBag.Title = "changepass";
+}
+
+<form method="post">
+    <table class="table table-responsive">
+        <tr>
+            <td>@Html.LabelFor(n => n.password)</td>
+            <td>@Html.PasswordFor(n => n.password)</td>
+            <td>@Html.ValidationMessageFor(n => n.password)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.new_password)</td>
+            <td>@Html.PasswordFor(n => n.new_password)</td>
+            <td>@Html.ValidationMessageFor(n => n.new_password)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="LogIn" class="btn btn-primary" /></td>
+            <td>
+                @if (ViewBag.mess != null)
+                {
+                    @ViewBag.mess;
+                }
+            </td>
+        </tr>
+    </table>
+</form>
+

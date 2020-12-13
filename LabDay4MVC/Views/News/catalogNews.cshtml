@@ -1,0 +1,20 @@
+﻿
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Pref</th>
+        <th>Description</th>
+        <th>Photo</th>
+        <th>Catalog_Name</th>
+    </tr>
+    @foreach (var item in ViewBag.NewList)
+    {
+        <tr>
+            <td>@item.title</td>
+            <td>@item.pref</td>
+            <td>@item.description</td>
+            <td>@item.photo</td>
+            <td>@item.TbCatalog.name</td>
+        </tr>
+    }
+</table>

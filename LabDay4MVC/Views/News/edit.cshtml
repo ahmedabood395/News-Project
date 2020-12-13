@@ -1,0 +1,50 @@
+﻿@model LabDay4MVC.Models.TbNew
+@{
+    ViewBag.Title = "edit";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <table class="table table-responsive text-center">
+        <tr>
+            <td>
+                <input type="hidden" name="id" value="@Model.id" />
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.title)</td>
+            <td><input type="text" name="title" value="@Model.title" /></td>
+            <td>@Html.ValidationMessageFor(n => n.title)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.pref)</td>
+            <td><input type="text" name="pref" value="@Model.pref" /></td>
+            <td>@Html.ValidationMessageFor(n => n.pref)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.description)</td>
+            <td><input type="text" name="description" value="@Model.description" /></td>
+            <td>@Html.ValidationMessageFor(n => n.description)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.photo)</td>
+            <td><input type="file" name="img" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.date)</td>
+            <td> <input class="form-control" type="datetime-local" value="@Model.date" id="example-datetime-local-input" name="date"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.Catalog_id)</td>
+            <td>@Html.DropDownListFor(n => n.Catalog_id, (SelectList)ViewBag.catalog)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save" class="btn btn-info" /></td>
+        </tr>
+    </table>
+</form>
+

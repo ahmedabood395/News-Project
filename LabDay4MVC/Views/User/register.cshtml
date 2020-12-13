@@ -1,0 +1,39 @@
+﻿@model LabDay4MVC.Models.TbUser
+@{
+    ViewBag.Title = "Register";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <table class="table table-responsive text-center">
+        <tr>
+            <td>@Html.LabelFor(n => n.name)</td>
+            <td>@Html.TextBoxFor(n => n.name)</td>
+            <td>@Html.ValidationMessageFor(n => n.name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.email)</td>
+            <td>@Html.TextBoxFor(n => n.email)</td>
+            <td>@Html.ValidationMessageFor(n => n.email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.password)</td>
+            <td>@Html.PasswordFor(n => n.password)</td>
+            <td>@Html.ValidationMessageFor(n => n.password)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.confirm_password)</td>
+            <td>@Html.PasswordFor(n => n.confirm_password)</td>
+            <td>@Html.ValidationMessageFor(n => n.confirm_password)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.age)</td>
+            <td>@Html.EditorFor(n=>n.age)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Register" class="btn btn-info" /></td>
+        </tr>
+    </table>
+</form>
+

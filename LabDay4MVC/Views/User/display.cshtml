@@ -1,0 +1,54 @@
+﻿@model List<LabDay4MVC.Models.TbNew>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Profile";
+}
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].id)</th>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].title)</th>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].pref)</th>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].description)</th>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].date)</th>
+            <th scope="col">@Html.DisplayNameFor(n => Model[0].TbCatalog.name)</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.title</td>
+                <td>@item.pref</td>
+                <td>@item.description</td>
+                <td>@item.date</td>
+                <td>@item.TbCatalog.name</td>
+                <td>
+                    @Html.ActionLink("Edit", "edit", "News", new { id = item.id }, null)|
+                    @Html.ActionLink("Delete", "delete", "News", new { id = item.id }, null)
+                </td>
+            </tr>
+
+        }
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td><img src="~/images/@item.photo" width="100" height="150" /></td>
+        }
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Add News", "create", "News", new { User_id = Session["id"] }, new { @class = "btn btn-primary" })
+        </td>
+        <td></td>
+        <td>
+            @Html.ActionLink("Change Password", "changepass", "User", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+
+    </tbody>
+</table>

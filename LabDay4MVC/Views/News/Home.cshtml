@@ -1,0 +1,40 @@
+﻿@model SelectList
+
+@{
+    ViewBag.Title = "Home";
+    @*Layout = "~/Views/Shared/_Layout.cshtml";*@
+}
+
+@Html.DropDownList("Catalog_id", Model)
+
+<div id="d1">
+
+</div>
+
+<table class="table table-responsive">
+
+    @foreach (var item in ViewBag.NewList)
+    {
+        <tr>
+            <td><img src="~/images/@item.photo" /></td>
+            <td>@item.title</td>
+
+            <td>@item.pref</td>
+            <td>@item.description</td>
+
+            <td>@item.date</td>
+
+
+        </tr>
+    }
+</table>
+
+@section sec{
+    <script>
+        $("#Catalog_id").on("change", function () {
+            let id = $("#Catalog_id").val();
+            alert(id)
+            $("#d1").load("/News/catalogNews/" + id);
+        })
+    </script>
+}
